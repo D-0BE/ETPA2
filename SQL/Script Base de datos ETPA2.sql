@@ -14,6 +14,7 @@ create table if not exists Usuario(
 create table if not exists Personaje(
 	idPersonaje int not null auto_increment,
     nombre varchar(20) not null,
+    apellidos varchar(30) not null,
     raza varchar(20) not null,
     edad int not null,
     ataque int not null,
@@ -23,6 +24,30 @@ create table if not exists Personaje(
     constraint fk_idMochila foreign key (idMochila) references Mochila(idMochila),
     primary key (idPersonaje)
 );
+
+create table if not exists Enemigo(
+    idEnemigo int not null auto_increment,
+    nombre varchar(20) not null,
+    apellidos varchar(30) not null,
+    raza varchar(20) not null,
+    edad int not null,
+    ataque int not null,
+    defensa int not null,
+    velocidad int not null,
+    primary key (idEnemigo)
+)
+
+create table if not exists Aliado(
+    idAliado int not null auto_increment,
+    nombre varchar(20) not null,
+    apellidos varchar(30) not null,
+    raza varchar(20) not null,
+    edad int not null,
+    ataque int not null,
+    defensa int not null,
+    velocidad int not null,
+    primary key (idAliado)
+)
 
 create table if not exists Final(
 	idFinal int not null auto_increment,
