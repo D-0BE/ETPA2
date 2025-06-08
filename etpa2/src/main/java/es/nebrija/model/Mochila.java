@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.nebrija.dao.DaoMochila;
 import es.nebrija.dao.DaoObjeto;
 
 public class Mochila {
@@ -27,10 +28,10 @@ public class Mochila {
         mochilas = cargarMochilas.cargarMochilas();
         for (Mochila mochila : mochilas) {
             System.out.println("ID: " + mochila.getIdMochila() +
-                               ", Nombre: " + mochila.getNombre() +
-                               ", Descripción: " + mochila.getDescripcion() +
-                               ", Valor: " + mochila.getValor() +
-                               ", Capacidad: " + mochila.getCapacidad());
+                ", Nombre: " + mochila.getNombre() +
+                ", Descripción: " + mochila.getDescripcion() +
+                ", Valor: " + mochila.getValor() +
+                ", Capacidad: " + mochila.getCapacidad());
         }
     }
     public int getIdMochila(){

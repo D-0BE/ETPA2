@@ -80,3 +80,33 @@ create table if not exists ObjetoMochila(
     primary key (idObjeto)
 );
 
+insert into Personaje (nombre, apellidos, raza, edad, ataque, defensa, velocidad, idMochila) values
+('Carlos', 'Ramirez', 'Humano', 32, 55, 45, 65, 1),
+('Lucia', 'Fernandez', 'Humano', 27, 52, 38, 68, 2),
+('Miguel', 'Santos', 'Humano', 29, 58, 42, 62, 1);
+
+insert into Enemigo (nombre, apellidos, raza, edad, ataque, defensa, velocidad) values
+('Varg', 'Bjornsson', 'Zombie', 40, 45, 25, 30),
+('Erik', 'Schneider', 'Zombie', 35, 40, 20, 25);
+
+insert into Aliado (nombre, apellidos, raza, edad, ataque, defensa, velocidad) values
+('Albert', 'Einstein', 'Humano', 76, 30, 50, 40),
+('Leonardo', 'Da Vinci', 'Humano', 67, 35, 55, 45);
+
+insert into Final (descripcion, idPersonaje) values
+('El héroe derrota al enemigo final.', 1),
+('El héroe se sacrifica para salvar a su pueblo.', 2);
+
+insert into Objeto (efecto, cantidadEfecto) values
+('Curación', 50),
+('Ataque', 20);
+
+insert into Mochila (cantidadObjeto) values
+(5),
+(3);
+
+insert into ObjetoMochila (idMochila, idObjeto) values
+(1, 1),
+(1, 2),
+(2, 1);
+

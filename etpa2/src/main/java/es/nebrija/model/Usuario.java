@@ -13,10 +13,6 @@ public class Usuario {
         this.password = password;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -24,8 +20,4 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
-
-    public String getPassword() {
-        return password;
-    } 
 }

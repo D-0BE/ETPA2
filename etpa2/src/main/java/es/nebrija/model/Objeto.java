@@ -28,10 +28,10 @@ public class Objeto {
         DaoObjeto cargarObjetos = new DaoObjeto();
         objetos = cargarObjetos.cargarObjetos();
         for (Objeto objeto : objetos) {
-            System.out.println("ID: " + objeto.idObjeto + ", Nombre: " + objeto.nombre + 
-                               ", Descripción: " + objeto.descripcion + 
-                               ", Valor: " + objeto.valor + 
-                               ", Capacidad Ocupada: " + objeto.peso);
+            System.out.println("ID: " + objeto.idObjeto + ", Nombre: " + objeto.nombre +
+                ", Descripción: " + objeto.descripcion +
+                ", Valor: " + objeto.valor +
+                ", Capacidad Ocupada: " + objeto.peso);
         }
     }
     public int getIdObjeto() {

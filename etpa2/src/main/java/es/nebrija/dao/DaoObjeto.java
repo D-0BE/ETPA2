@@ -61,4 +61,27 @@ public class DaoObjeto {
             ps.executeUpdate();
         }
     }
+    public void selectAll() throws SQLException {
+        String sql = "SELECT * FROM Objeto";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        int countData = 0;
+
+        while (rs.next()) {
+            int idObjeto = rs.getInt("idObjeto");
+            String efecto = rs.getString("efecto");
+            int cantidadEfecto = rs.getInt("cantidadEfecto");
+
+            countData++;
+
+            System.out.println("Datos del objeto " + countData + "\n" +
+                    "ID Objeto: " + idObjeto + "\n" +
+                    "Efecto: " + efecto + "\n" +
+                    "Cantidad de efecto: " + cantidadEfecto + "\n" +
+                    "----------------------------");
+        }
+
+        stmt.close();
+    }
 }

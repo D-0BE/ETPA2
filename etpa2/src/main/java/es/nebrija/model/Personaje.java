@@ -20,22 +20,71 @@ public class Personaje {
     private int ataque;
     private int defensa;
     private int velocidad;
-    
+
     public Personaje(int idPersonaje, String nombre, String apellidos, String raza, int edad, int ataque, int defensa, int velocidad) {
+    this.idPersonaje = idPersonaje;
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.raza = raza;
+    this.edad = edad;
+    this.ataque = ataque;
+    this.defensa = defensa;
+    this.velocidad = velocidad;
+    }
+    
+    public int getIdPersonaje() {
+        return idPersonaje;
+    }
+    public void setIdPersonaje(int idPersonaje) {
         this.idPersonaje = idPersonaje;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public String getApellidos() {
+        return apellidos;
+    }
+    public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+    public String getRaza() {
+        return raza;
+    }
+    public void setRaza(String raza) {
         this.raza = raza;
+    }
+    public int getEdad() {
+        return edad;
+    }
+    public void setEdad(int edad) {
         this.edad = edad;
+    }
+    public int getAtaque() {
+        return ataque;
+    }
+    public void setAtaque(int ataque) {
         this.ataque = ataque;
+    }
+    public int getDefensa() {
+        return defensa;
+    }
+    public void setDefensa(int defensa) {
         this.defensa = defensa;
+    }
+    public int getVelocidad() {
+        return velocidad;
+    }
+    public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-    public void setPersonajes()  throws SQLException{
-        ArrayList<Personaje> personajes = new ArrayList<Personaje>();
-        DaoPersonaje cargarPersonajes = new DaoPersonaje();
-        personajes = cargarPersonajes.cargarPersonajes();
+    
+    public void seleccionarTodosPersonajes () throws SQLException{
+    DaoPersonaje daoPersonaje = new DaoPersonaje();
+    daoPersonaje.selectAll();
     }
     
-    
 }
+

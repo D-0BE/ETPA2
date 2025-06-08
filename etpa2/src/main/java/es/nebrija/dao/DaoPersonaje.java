@@ -16,16 +16,14 @@ public class DaoPersonaje {
         conn = DbConnection.getConnection();
     }
 
-    public ArrayList<Personaje> cargarPersonajes() throws SQLException{
-        String seleccionarTodo = "SELECT * FROM Personaje";
-
+    public void selectAll() throws SQLException {
+        String selectedAllData = "SELECT * FROM Personaje";
         Statement statementSelect = conn.createStatement();
+        ResultSet resultData = statementSelect.executeQuery(selectedAllData);
 
-        ResultSet resultData = statementSelect.executeQuery(seleccionarTodo);
+        int countData = 0;
 
-        ArrayList<Personaje> personajes = new ArrayList<Personaje>();
-
-        while(resultData.next()){
+        while (resultData.next()) {
             int idPersonaje = resultData.getInt("idPersonaje");
             String nombre = resultData.getString("nombre");
             String apellidos = resultData.getString("apellidos");
@@ -34,11 +32,23 @@ public class DaoPersonaje {
             int ataque = resultData.getInt("ataque");
             int defensa = resultData.getInt("defensa");
             int velocidad = resultData.getInt("velocidad");
-            Personaje cargado = new Personaje(idPersonaje, nombre, apellidos, raza, edad, ataque, defensa, velocidad);
-            personajes.add(cargado);
+            int idMochila = resultData.getInt("idMochila");
+
+            countData++;
+
+            System.out.println("Datos del personaje " + countData + "\n" +
+                    "ID: " + idPersonaje + "\n" +
+                    "Nombre: " + nombre + "\n" +
+                    "Apellidos: " + apellidos + "\n" +
+                    "Raza: " + raza + "\n" +
+                    "Edad: " + edad + "\n" +
+                    "Ataque: " + ataque + "\n" +
+                    "Defensa: " + defensa + "\n" +
+                    "Velocidad: " + velocidad + "\n" +
+                    "ID Mochila: " + idMochila + "\n" +
+                    "----------------------------");
         }
-        return personajes;
+
+        statementSelect.close();
     }
-
-
 }

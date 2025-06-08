@@ -19,7 +19,7 @@ public class DaoMochila {
     public ArrayList<Mochila> cargarMochilas() throws SQLException {
         String sql = "SELECT * FROM Mochila";
         try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+            ResultSet rs = stmt.executeQuery(sql)) {
 
             ArrayList<Mochila> mochilas = new ArrayList<>();
             while (rs.next()) {
@@ -34,7 +34,7 @@ public class DaoMochila {
             return mochilas;
         }
     }
-   
+    
     public void guardarMochila(Mochila mochila) throws SQLException {
         String sql = "INSERT INTO Mochila(nombre, descripcion, capacidad, valor) VALUES(?,?,?,?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -62,5 +62,26 @@ public class DaoMochila {
             ps.setInt(1, idMochila);
             ps.executeUpdate();
         }
+    }
+    public void selectAll() throws SQLException {
+        String sql = "SELECT * FROM Mochila";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        int countData = 0;
+
+        while (rs.next()) {
+            int idMochila = rs.getInt("idMochila");
+            int cantidadObjeto = rs.getInt("cantidadObjeto");
+
+            countData++;
+
+            System.out.println("Datos de la mochila " + countData + "\n" +
+                    "ID Mochila: " + idMochila + "\n" +
+                    "Cantidad de objetos: " + cantidadObjeto + "\n" +
+                    "----------------------------");
+        }
+
+        stmt.close();
     }
 }
