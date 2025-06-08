@@ -35,9 +35,6 @@ public class Personaje {
         ArrayList<Personaje> personajes = new ArrayList<Personaje>();
         DaoPersonaje cargarPersonajes = new DaoPersonaje();
         personajes = cargarPersonajes.cargarPersonajes();
-        while (Personaje personaje : personajes) {
-            
-        }
     }
     
     
